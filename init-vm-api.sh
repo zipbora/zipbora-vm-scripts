@@ -16,7 +16,7 @@ service docker start
 
 #portainer run with auto image pull
 mkdir -p /data/portainer
-docker run --name portainer -p 8091:9000 -d --restart always -v /data/portainer:/data -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
+docker run --name portainer -p 8092:9000 -d --restart always -v /data/portainer:/data -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
 
 #check docker status
 service docker status
