@@ -14,9 +14,12 @@ apt-get install docker-ce docker-ce-cli containerd.io
 systemctl enable docker
 service docker start
 
-#portainer run with auto image pull
+#portainer run
 mkdir -p /data/portainer
-docker run --name portainer -p 8092:9000 -d --restart always -v /data/portainer:/data -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
+docker run -d --name portainer -p 8092:9000 --restart always -v /boot/data/portainer:/data -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
+
+#jenkins run
+docker run -d --name jenkins -p 8080:8080 --restart always -v /boot/data/jenkins_home:var/jenkins_home -u root jenkins/jenkins:lts
 
 #check docker status
 service docker status
